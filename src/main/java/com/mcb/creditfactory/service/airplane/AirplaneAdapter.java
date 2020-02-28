@@ -1,6 +1,6 @@
-package com.mcb.creditfactory.service.car;
+package com.mcb.creditfactory.service.airplane;
 
-import com.mcb.creditfactory.dto.CarDto;
+import com.mcb.creditfactory.dto.AirplaneDto;
 import com.mcb.creditfactory.external.CollateralObject;
 import com.mcb.creditfactory.external.CollateralType;
 import com.mcb.creditfactory.model.Evaluation;
@@ -10,18 +10,18 @@ import java.time.LocalDate;
 import java.util.Set;
 
 @AllArgsConstructor
-public class CarAdapter implements CollateralObject {
+public class AirplaneAdapter implements CollateralObject {
 
-    private CarDto car;
+    private AirplaneDto airplaneDto;
 
     @Override
     public Set<Evaluation> getAllEvaluation() {
-        return car.getEvaluations();
+        return airplaneDto.getEvaluations();
     }
 
     @Override
     public Short getYear() {
-        return car.getYear();
+        return airplaneDto.getYear();
     }
 
     @Override
@@ -31,6 +31,6 @@ public class CarAdapter implements CollateralObject {
 
     @Override
     public CollateralType getType() {
-        return CollateralType.CAR;
+        return CollateralType.AIRPLANE;
     }
 }

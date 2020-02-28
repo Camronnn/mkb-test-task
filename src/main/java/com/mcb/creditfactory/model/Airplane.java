@@ -1,30 +1,33 @@
 package com.mcb.creditfactory.model;
 
+
 import lombok.*;
 
 import javax.persistence.*;
-import java.math.BigDecimal;
 import java.util.List;
 import java.util.Set;
 
-
 @Data
-@ToString(of = {"id", "brand", "model", "power", "year", "evaluations"})
-@EqualsAndHashCode(of = {"id", "brand", "model", "power", "year", "evaluations"})
+@ToString(of = {"id", "brand", "model", "manufacturer", "year", "fuelCapacity", "seats", "evaluations"})
+@EqualsAndHashCode(of = {"id", "brand", "model", "manufacturer", "year", "fuelCapacity", "seats", "evaluations"})
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "CAR")
-public class Car {
+@Table(name = "AIRPLANE")
+public class Airplane {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String brand;
     private String model;
-    private Double power;
+    private String manufacturer;
 
     @Column(name = "year_of_issue")
     private Short year;
+
+    private Integer fuelCapacity;
+    private Integer seats;
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Set<Evaluation> evaluations;
